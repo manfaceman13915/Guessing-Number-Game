@@ -61,6 +61,8 @@ int main() {
 
             case 3: {
                 int secretNumber = rand() % 500 + 1;
+                minRange = 1;
+                maxRange = 500;
                 while (true) {
                     cout << "ทายเลข (1-500): ";
                     cin >> guess;
@@ -69,11 +71,17 @@ int main() {
                         cout << "🎉 ถูกต้อง! ใช้ไปทั้งหมด " << tries << " ครั้ง" << endl;
                         break;
                     } else if (guess < secretNumber) {
-                        minRange = guess + 1;
-                        cout << "🔼 สูงกว่านี้! (ช่วง: " << minRange << " - " << maxRange << ")" << endl;
+                        if (guess + 1 <= maxRange) minRange = guess + 1;
+                        if (minRange <= maxRange)
+                            cout << "🔼 สูงกว่านี้! (ช่วง: " << minRange << " - " << maxRange << ")" << endl;
+                        else
+                            cout << "🔼 สูงกว่านี้! (ช่วงไม่สามารถระบุได้)" << endl;
                     } else {
-                        maxRange = guess - 1;
-                        cout << "🔽 ต่ำกว่านี้! (ช่วง: " << minRange << " - " << maxRange << ")" << endl;
+                        if (guess - 1 >= minRange) maxRange = guess - 1;
+                        if (minRange <= maxRange)
+                            cout << "🔽 ต่ำกว่านี้! (ช่วง: " << minRange << " - " << maxRange << ")" << endl;
+                        else
+                            cout << "🔽 ต่ำกว่านี้! (ช่วงไม่สามารถระบุได้)" << endl;
                     }
                 }
                 break;
@@ -81,6 +89,8 @@ int main() {
 
             case 4: {
                 int secretNumber = rand() % 10000 + 1;
+                minRange = 1;
+                maxRange = 10000;
                 while (true) {
                     cout << "ทายเลข (1-10,000): ";
                     cin >> guess;
@@ -89,11 +99,17 @@ int main() {
                         cout << "🎉 ถูกต้อง! ใช้ไปทั้งหมด " << tries << " ครั้ง" << endl;
                         break;
                     } else if (guess < secretNumber) {
-                        minRange = guess + 1;
-                        cout << "🔼 สูงกว่านี้! (ช่วง: " << minRange << " - " << maxRange << ")" << endl;
+                        if (guess + 1 <= maxRange) minRange = guess + 1;
+                        if (minRange <= maxRange)
+                            cout << "🔼 สูงกว่านี้! (ช่วง: " << minRange << " - " << maxRange << ")" << endl;
+                        else
+                            cout << "🔼 สูงกว่านี้! (ช่วงไม่สามารถระบุได้)" << endl;
                     } else {
-                        maxRange = guess - 1;
-                        cout << "🔽 ต่ำกว่านี้! (ช่วง: " << minRange << " - " << maxRange << ")" << endl;
+                        if (guess - 1 >= minRange) maxRange = guess - 1;
+                        if (minRange <= maxRange)
+                            cout << "🔽 ต่ำกว่านี้! (ช่วง: " << minRange << " - " << maxRange << ")" << endl;
+                        else
+                            cout << "🔽 ต่ำกว่านี้! (ช่วงไม่สามารถระบุได้)" << endl;
                     }
                 }
                 break;
